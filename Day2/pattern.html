@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day2--patterns</title>
+  <style> 
+    .main{
+      height: 100%;
+      width:100%;
+      display: table
+    }
+    #demo{
+      display: table-cell;
+      border:1px solid red;
+    }
+  </style>
+</head>
+<body>
+    <div class="main">
+      <canvas id="demo" height=300 width=300>
+        您的浏览器不支持canvas标签
+      </canvas>
+    </div>
+    <script>
+      let  canvas = document.getElementById("demo");
+      let ctx = canvas.getContext("2d");
+      if(ctx){
+        
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas-Day1</title>
+  <style>
+    .main{
+      position: fixed;
+      top:0;
+      left:0;
+      bottom:0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border:1px solid red;
+      width:100%;
+      flex-wrap: wrap;
+    }
+    .item{
+      border:1px solid black;
+      margin: 0 auto;
+      box-shadow: 5px 5px 5px aqua;
+      width:300;
+      height:300;
+    }
+  </style>
+</head>
+<body onload="draw()">
+  <div class="main">
+    <canvas id="demo1" class="item"  width=300 height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo2" class="item" height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo3"class="item"   height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo4" class="item"  height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo5" class="item"  height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo6"class="item"   height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo7"class="item"   height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo8"class="item"   height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo9"class="item"   height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+    <canvas id="demo10"class="item"   height="300">
+      您的浏览器版本过低，显示不出来图画
+    </canvas>
+  </div>
+    <script>
+      function draw(){
+        let ctx1 =  document.getElementById("demo1").getContext("2d")
+        let ctx2 = document.getElementById("demo2").getContext("2d")
+        let ctx3 = document.getElementById("demo3").getContext("2d")
+        let ctx4 = document.getElementById("demo4").getContext("2d")
+        let ctx5 = document.getElementById("demo5").getContext("2d")
+        let ctx6 = document.getElementById("demo6").getContext("2d")
+        let ctx7 = document.getElementById("demo7").getContext("2d")
+        let ctx8 = document.getElementById("demo8").getContext("2d")
+        let ctx9 = document.getElementById("demo9").getContext("2d")
+        let ctx10 = document.getElementById("demo10").getContext("2d")
+        if(ctx1){
+          ctx1.fillStyle="rgb(300,0,0,.5)"
+          ctx1.fillRect(0,0,300,300);
+          ctx1.clearRect(100,100,100,100);
+          ctx1.strokeRect(120,120,60,60)
+        }
+       
+        if(ctx2){
+          ctx2.beginPath();
+          ctx2.moveTo(150,30);
+          ctx2.lineTo(50,210);
+          ctx2.lineTo(250,210);
+          ctx2.fill();
+        }
+        if(ctx3){
+          ctx3.beginPath();
+          ctx3.arc(150,150,100,0,Math.PI*2,true);
+          ctx3.moveTo(220,150);
+          ctx3.arc(150,150,70,0,Math.PI,false);
+          ctx3.moveTo(120,90);
+          ctx3.arc(110,90,10,0,Math.PI *2,true)
+          ctx3.moveTo(190,90);
+          ctx3.arc(180,90,10,0,Math.PI *2,true);
+          ctx3.stroke();
+        }
+        if(ctx4){
+          ctx4.beginPath();
+          ctx4.moveTo(50,50);
+          ctx4.lineTo(200,50);
+          ctx4.lineTo(50,200);
+          ctx4.closePath();
+          ctx4.fill();
+          ctx4.beginPath();
+          ctx4.moveTo(230,70);
+          ctx4.lineTo(230,220);
+          ctx4.lineTo(70,220);
+          ctx4.closePath();
+          ctx4.stroke();
+        }
+        if(ctx5){
+          ctx5.beginPath();
+          ctx5.moveTo(75, 40);
+          ctx5.bezierCurveTo(75, 37, 70, 25, 50, 25);
+          ctx5.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+          ctx5.bezierCurveTo(20, 80, 40, 102, 75, 120);
+          ctx5.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+          ctx5.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+          ctx5.bezierCurveTo(85, 25, 75, 37, 75, 40);
+          ctx5.fill();
+          ctx5.beginPath();
+          ctx5.moveTo(160,180);
+          ctx5.quadraticCurveTo(90,100,250,190);
+          ctx5.stroke();
+        }
+        if(ctx6){
+          let rectangle = new Path2D();
+          rectangle.rect(50,50,150,150);
+          let circle = new Path2D();
+          circle.arc(200,200,50,0,Math.PI*2,true);
+          ctx6.stroke(rectangle);
+          ctx6.fill(circle);
+          let p = new Path2D("M10 10 h 80 v 80 h -80 Z");
+          ctx6.fill(p);
+        }
+        if(ctx7){
+          for(let i=0;i<10;i++){
+            for(let j=0;j<10;j++){
+              let a = 100+i*20;
+              let b = 100+j*20;
+              ctx7.fillStyle = `rgba(${a},${b},0,.6)`;
+              ctx7.fillRect(j*30,i*30,30,30);
+            }
+          }
+        }
+        if(ctx8){
+          for(let i=1;i<11;i++){
+            for(let j=1;j<11;j++){
+              let a = 30+i*20;
+              let b = 150+j*20;
+              ctx8.strokeStyle = `rgb(${a},${b},200)`;
+              ctx8.moveTo(15*(2*j-1)+10,15*(2*i-1));
+              ctx8.arc(15*(2*j-1),15*(2*i-1),10,0,Math.PI*2,true);
+              ctx8.stroke();
+            }
+          }
+        }
+        if(ctx9){
+          ctx9.beginPath();
+          ctx9.fillStyle='yellow';
+          ctx9.globalAlpha=0.6;
+          ctx9.fillRect(0,0,150,150);
+          ctx9.fillStyle='green';
+          ctx9.globalAlpha=0.6;
+          ctx9.fillRect(150,0,150,150);
+          ctx9.fillStyle='blue';
+          ctx9.globalAlpha=0.6;
+          ctx9.fillRect(0,150,150,150);
+          ctx9.fillStyle='red';
+          ctx9.globalAlpha=0.6;
+          ctx9.fillRect(150,150,150,150);
+          ctx9.closePath();
+          ctx9.fillStyle='#FFF';
+          ctx9.globalAlpha=0.1;
+          for(let i=1;i<11;i++){
+            ctx9.beginPath();
+            ctx9.arc(150,150,15*i,0,Math.PI*2,true);
+            ctx9.fill();
+          }
+        }
+        if(ctx10){
+          for(let i=0;i<10;i++){
+            ctx10.beginPath();
+            if(i%2==0){
+              ctx10.lineCap='round';
+            }else{
+              ctx10.lineCap='square';
+            }
+            ctx10.lineWidth=1+i;
+            ctx10.strokeStyle ='rgba(100,200,300,.5)';
+            ctx10.moveTo(i*30+20,20);
+            ctx10.lineTo(i*20+20,280);
+            ctx10.stroke();
+          }
+        }
+      }
+      
+    </script>
+</body>
+</html>
